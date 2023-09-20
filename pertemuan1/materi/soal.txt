@@ -1,0 +1,15 @@
+5. Pertanyaan 
+
+1. Jelaskan perbedaan antara objek dengan class! 
+	jawaban : objek bisa diartikan pemanfaatan atau perwujudan dari clas yang telah kita siap untuk digunakan sedangkan class adalah sekumpulan dari suatu fungsi-sungsi atau method yang dibuat untuk tujuan tertentu
+2. Jelaskan alasan warna dan tipe mesin dapat menjadi atribut dari objek mobil! 
+	jawaban : karena sesuatu yang ada didalam obejk sebagi contoh mobil bisa dijadikan atribut apabila itu adalah bagian dari ciri ciri object tersebut
+3. Sebutkan salah satu kelebihan utama dari pemrograman berorientasi objek dibandingkan 
+dengan pemrograman struktural! 
+	jawaban : kelebihan yang sangat terlihat yaitu disaat menggunakan pbo akan sangat memudahkan kita untuk membuat suatu program yang membutuhkan banyak data karena jika kita menggunakan konsep pbo hanya perlu membuat satu class saja dan didalamnya terdapat method atau fungsi yang dapat menjalankan terhadap objek tersebut
+4. Apakah diperbolehkan melakukan pendefinisian dua buah atribut dalam satu baris kode seperti 
+“public String nama,alamat;”? 
+	jawaban :diperbolehkan jika tipe data yang dgunakan sama 
+5. Pada class SepedaGunung, jelaskan alasan atribut merk, kecepatan, dan gear tidak lagi ditulis di 
+dalam class tersebut!
+	jawaban : karena didalam class sepedagunung menggunakan extend dari class sepeda
