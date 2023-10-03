@@ -16,7 +16,7 @@ public class Pengguna {
         return nama;
     }
 
-    public void setEmail() {
+    public void setEmail(String email) {
         this.email = email;
     }
 

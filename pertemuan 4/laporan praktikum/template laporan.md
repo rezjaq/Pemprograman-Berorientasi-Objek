@@ -20,6 +20,8 @@ TI-2C
 
 ## Percobaan 1
 
+![Alt text](image-13.png)
+
 ```java
 package percobaan;
 
@@ -140,6 +142,8 @@ Berdasarkan percobaan 1, jawablah pertanyaan‑pertanyaan yang terkait:
    jawaban : p yang terdapat pada baris Laptop l itu adalah argumen deklarasi objek dari class Processor yang akan dipanggil pada deklarasi objek di l pada Laptop lalu jika kode program diubah seperti yang di jobsheet maka tidak ada perubahan karena itu sama halnya seperti yang sebelum
 
 ## Percobaan 2
+
+![Alt text](image-12.png)
 
 ```java
 package percobaan;
@@ -294,6 +298,8 @@ private Sopir sopir;
 
 ## Percobaan 3
 
+![Alt text](image-11.png)
+
 ```java
 package percobaan;
 
@@ -435,6 +441,8 @@ public class MainPertanyaan3 {
 ```
 
 ## Percobaan 4
+
+![Alt text](image-10.png)
 
 ```java
 package percobaan;
@@ -581,3 +589,280 @@ public void setPenumpang(Penumpang penumpang, int nomor) {
 
 Hasil Outputnya
 ![Alt text](image-5.png)
+
+## Tugas
+
+![Alt text](image-14.png)
+
+```java
+package tugas;
+
+public class Pengguna {
+    private String nama, email;
+
+    public Pengguna(String nama, String email) {
+        this.nama = nama;
+        this.email = email;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setEmail() {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String info() {
+        String info = "";
+        info += "Nama : " + nama + "\n";
+        info += "Email : " + email + "\n";
+        return info;
+    }
+}
+package tugas;
+
+import java.util.BitSet;
+
+public class Bioskop {
+    private String nama, alamat;
+    private Film filmTersedia[];
+
+    public Bioskop(String nama, String alamat, int jumlahFilm) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.filmTersedia = new Film[jumlahFilm + 1];
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setFilmTersedia(Film film, int index) {
+        if (index >= 0 && index <= filmTersedia.length - 1) {
+            this.filmTersedia[index] = film;
+        } else {
+            System.out.println("Indeks tidak valid");
+        }
+    }
+
+    public void tampilkanFilmTersedia() {
+        for (int i = 0; i < filmTersedia.length; i++) {
+            Film film = filmTersedia[i];
+            if (film != null) {
+                System.out.println(i + ". " + film.getJudul());
+            }
+        }
+    }
+
+    public Film getFilmTersedia(int index) {
+        if (index >= 0 && index < filmTersedia.length) {
+            return filmTersedia[index];
+        } else {
+            return null;
+        }
+    }
+
+    public String info() {
+        String info = "";
+        info += "Nama Bioskop: " + nama + "\n";
+        info += "Alamat: " + alamat + "\n";
+        info += "Film Tersedia:\n";
+        for (Film film : filmTersedia) {
+            if (film != null) {
+                info += "- " + film.info() + "\n";
+            }
+        }
+        return info;
+    }
+}
+package tugas;
+
+public class Pemesanan {
+    private Pengguna pengguna;
+    private Film film;
+    private Bioskop bioskop;
+    private String nomorKursi;
+
+    public Pemesanan(Film film, Pengguna pengguna, Bioskop bioskop, String nomorKursi) {
+        this.film = film;
+        this.pengguna = pengguna;
+        this.bioskop = bioskop;
+        this.nomorKursi = nomorKursi;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public void setPengguna() {
+        this.pengguna = pengguna;
+    }
+
+    public Pengguna getPengguna() {
+        return pengguna;
+    }
+
+    public void setBioskop(Bioskop bioskop) {
+        this.bioskop = bioskop;
+    }
+
+    public Bioskop getBioskop() {
+        return bioskop;
+    }
+
+    public void setNomorKursi(String nomorKursi) {
+        this.nomorKursi = nomorKursi;
+    }
+
+    public String getNomorKursi() {
+        return nomorKursi;
+    }
+
+    public String info() {
+        String info = "";
+        info += "Pemesanan oleh:\n" + pengguna.info();
+        info += "Film yang dipesan:\n" + film.info();
+        info += "Nomor Kursi: " + nomorKursi + "\n";
+        info += "Bioskop: " + bioskop.getNama() + "\n";
+        return info;
+    }
+}
+package tugas;
+
+import java.util.Scanner;
+
+public class MainTugas {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Bioskop bioskopA = new Bioskop("Bioskop A", "Jl. ABC No. 123", 3);
+
+        Film film1 = new Film("Avengers: Endgame", "Action", 181);
+        Film film2 = new Film("Toy Story 4", "Animation", 100);
+        Film film3 = new Film("Joker", "Drama", 122);
+
+        bioskopA.setFilmTersedia(film1, 1);
+        bioskopA.setFilmTersedia(film2, 2);
+        bioskopA.setFilmTersedia(film3, 3);
+
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Pesan Tiket");
+            System.out.println("2. Keluar");
+            System.out.print("Pilih menu (1/2): ");
+            int choice = input.nextInt();
+            input.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.println();
+                    System.out.print("Nama Pengguna: ");
+                    String namaPengguna = input.nextLine();
+                    System.out.print("Email Pengguna: ");
+                    String emailPengguna = input.nextLine();
+                    Pengguna pengguna = new Pengguna(namaPengguna, emailPengguna);
+                    System.out.println();
+                    System.out.println("Daftar Film yang Tersedia:");
+                    bioskopA.tampilkanFilmTersedia();
+                    System.out.print("Pilih nomor film: ");
+                    int nomorFilm = input.nextInt();
+                    input.nextLine();
+
+                    System.out.print("Nomor Kursi: ");
+                    String nomorKursi = input.nextLine();
+
+                    Film filmDipesan = bioskopA.getFilmTersedia(nomorFilm);
+                    Pemesanan pesanan = new Pemesanan(filmDipesan, pengguna, bioskopA, nomorKursi);
+                    System.out.println();
+                    System.out.println("Informasi Pemesanan:");
+                    System.out.println(pesanan.info());
+                    break;
+
+                case 2:
+                    System.out.println("Terima kasih! Keluar dari program.");
+                    input.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan pilih menu yang benar.");
+                    break;
+            }
+        }
+    }
+}
+package tugas;
+
+public class Film {
+    private String judul, genre;
+    private int durasi;
+
+    public Film(String judul, String genre, int durasi) {
+        this.judul = judul;
+        this.genre = genre;
+        this.durasi = durasi;
+    }
+
+    public void setJudul(String judul) {
+        this.judul = judul;
+    }
+
+    public String getJudul() {
+        return judul;
+    }
+
+    public void setDurasi(int durasi) {
+        this.durasi = durasi;
+    }
+
+    public int getDurasi() {
+        return durasi;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String info() {
+        String info = "";
+        info += "Judul Film : " + judul + "\n";
+        info += "Genre Film : " + genre + "\n";
+        info += "Durasi Film : " + durasi + "\n";
+        return info;
+    }
+}
+```
+
+### Hasil Outputnya
+
+![Alt text](image-6.png)
+![Alt text](image-7.png)
+![Alt text](image-8.png)
+![Alt text](image-9.png)

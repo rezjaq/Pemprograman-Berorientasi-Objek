@@ -21,7 +21,7 @@ public class Pemesanan {
         return film;
     }
 
-    public void setPengguna() {
+    public void setPengguna(Pengguna pengguna) {
         this.pengguna = pengguna;
     }
 
